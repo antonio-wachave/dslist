@@ -1,5 +1,6 @@
 package com.devsuperior.dslist.services.game;
 
+import com.devsuperior.dslist.Projections.GameMinProjection;
 import com.devsuperior.dslist.dto.GameMinDTO;
 import com.devsuperior.dslist.entities.Game;
 import com.devsuperior.dslist.repositories.GameRepository;
@@ -34,5 +35,12 @@ public class GameServicesImpl implements GameService {
     public GameMinDTO findById(Long id) {
         Game result = this.gameRepository.findById(id).get();
         return new GameMinDTO(result);
+    }
+
+    @Override
+    @Transactional
+    public List<GameMinDTO> findByList(Long listId) {
+        List<GameMinProjection> result = this.gameRepository.searchByList(listId);
+        return result.stream().map( x -> new GameMinDTO(x)).toList();
     }
 }
