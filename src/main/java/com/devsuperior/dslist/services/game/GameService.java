@@ -1,4 +1,4 @@
-package com.devsuperior.dslist.services;
+package com.devsuperior.dslist.services.game;
 
 import com.devsuperior.dslist.dto.GameMinDTO;
 
