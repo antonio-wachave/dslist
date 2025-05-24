@@ -7,4 +7,5 @@ import java.util.List;
 public interface GameService {
 
     List<GameMinDTO> findAll();
+    GameMinDTO findById(Long id);
 }

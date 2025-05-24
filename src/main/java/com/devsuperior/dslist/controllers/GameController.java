@@ -4,6 +4,7 @@ import com.devsuperior.dslist.dto.GameMinDTO;
 import com.devsuperior.dslist.services.GameService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -22,6 +23,11 @@ public class GameController {
 
     @GetMapping("/games")
     public List<GameMinDTO> findAll(){
-        return gameService.findAll();
+        return this.gameService.findAll();
+    }
+
+    @GetMapping("/{id}")
+    public GameMinDTO findById(@PathVariable Long id){
+    return this.gameService.findById(id);
     }
 }
