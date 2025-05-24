@@ -1,10 +1,10 @@
 package com.devsuperior.dslist.services;
 
-import com.devsuperior.dslist.entities.Game;
+import com.devsuperior.dslist.dto.GameMinDTO;
 
 import java.util.List;
 
 public interface GameService {
 
-    List<Game> findAll();
+    List<GameMinDTO> findAll();
 }
