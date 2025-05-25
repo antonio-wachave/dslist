@@ -5,8 +5,6 @@ import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 
-import static org.springframework.data.jpa.domain.AbstractPersistable_.id;
-
 @Entity
 @Table(name="tb_belonging")
 public class Belonging {

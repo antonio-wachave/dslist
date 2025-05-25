@@ -2,8 +2,6 @@ package com.devsuperior.dslist.controllers;
 
 import com.devsuperior.dslist.dto.GameListDTO;
 import com.devsuperior.dslist.dto.GameMinDTO;
-import com.devsuperior.dslist.entities.GameList;
-import com.devsuperior.dslist.repositories.GameRepository;
 import com.devsuperior.dslist.services.game.GameService;
 import com.devsuperior.dslist.services.gamelist.GameListService;
 import org.springframework.beans.factory.annotation.Autowired;
