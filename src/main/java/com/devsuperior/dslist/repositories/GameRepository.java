@@ -18,5 +18,6 @@ public interface GameRepository extends CrudRepository<Game, Long> {
     INNER JOIN tb_belonging ON tb_game.id = tb_belonging.game_id
     WHERE tb_belonging.list_id = :listId
     ORDER BY tb_belonging.position""")
+
     List<GameMinProjection> searchByList(Long listId);
 }
