@@ -26,18 +26,14 @@ public class GameListImpl implements GameListService {
     @Override
     @Transactional(readOnly = true)
     public List<GameListDTO> findAll() {
-
         List<GameList> result = (List<GameList>) this.gameListRepository.findAll();
         return result.stream().map(x -> new GameListDTO(x)).toList();
-
     }
 
     @Override
     @Transactional(readOnly = true)
     public void move(Long listId, int sourceIndex, int destinationIndex) {
-
         List<GameMinProjection> list = this.gameRepository.searchByList(listId);
-
         GameMinProjection obj = list.remove(sourceIndex);
         list.add(destinationIndex, obj);
 

@@ -1,39 +1,23 @@
+version: "3"
+
 services:
-  # ====================================================================================================================
-  # POSTGRES SERVER
-  # ====================================================================================================================
-  pg-docker:
+  db:
+    container_name: test_db
     image: postgres
-    container_name: dev-postgresql
     environment:
-      POSTGRES_DB: mydatabase
-      POSTGRES_PASSWORD: 1234567
+      POSTGRES_USER : test
+      POSTGRES_PASSWORD : 1234
+      POSTGRES_DB : test_db
     ports:
-      - 5433:5432
-    volumes:
-      - ./.data/postgresql/data:/var/lib/postgresql/data
-    networks:
-      - dev-network
-  # ====================================================================================================================
-  # PGADMIN
-  # ====================================================================================================================
-  pgadmin-docker:
+      - "5432:5432"
+  pgadmin:
+    container_name: test_pgadmin
     image: dpage/pgadmin4
-    container_name: dev-pgadmin
+    restart: always
     environment:
-      PGADMIN_DEFAULT_EMAIL: me@example.com
-      PGADMIN_DEFAULT_PASSWORD: 1234567
+      PGADMIN_DEFAULT_EMAIL : user@test.com
+      PGADMIN_DEFAULT_PASSWORD: 1234
     ports:
-      - 5050:80
-    volumes:
-      - ./.data/pgadmin:/var/lib/pgadmin
+      - "5050:80"
     depends_on:
-      - pg-docker
-    networks:
-      - dev-network
-# ======================================================================================================================
-# REDE
-# ======================================================================================================================
-networks:
-  dev-network:
-    driver: bridge
+      - db

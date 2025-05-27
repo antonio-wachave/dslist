@@ -22,10 +22,8 @@ public class GameServicesImpl implements GameService {
 
     @Override
     public List<GameMinDTO> findAll() {
-
         List<Game> result = (List<Game>) gameRepository.findAll();
         return result.stream().map( x -> new GameMinDTO(x)).toList();
-
     }
 
     @Override
