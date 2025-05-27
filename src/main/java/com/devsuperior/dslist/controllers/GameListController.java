@@ -33,7 +33,7 @@ public class GameListController {
         return this.gameService.findByList(listId);
     }
 
-    @PutMapping("/{listId}/replacement")
+    @PutMapping("/gamelists/{listId}/replacement")
     public void move(@PathVariable Long listId, @RequestBody ReplacementDTO body) {
         this.gameListService.move(listId, body.getSourceIndex(), body.getDestinationIndex());
     }
